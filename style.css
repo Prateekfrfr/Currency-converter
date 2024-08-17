@@ -1,12 +1,11 @@
 
-/* Basic Reset */
 body, h1, p, select, input, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General Body Styles */
+
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #f0f4f8, #d9e2ec); /* Soft gradient background */
@@ -18,7 +17,7 @@ body {
     overflow: hidden;
 }
 
-/* Container Styles */
+
 .container {
     background: #fff;
     border-radius: 20px;
@@ -33,7 +32,7 @@ body {
     align-items: center;
 }
 
-/* Heading Styles */
+
 h1 {
     margin-bottom: 30px;
     font-size: 32px;
@@ -46,7 +45,6 @@ h1 {
     animation: bounceIn 1s ease-out;
 }
 
-/* Amount Input Styles */
 .amount {
     margin-bottom: 30px;
 }
@@ -70,7 +68,7 @@ input[type="number"]:focus {
     transform: scale(1.02);
 }
 
-/* Dropdown Styles */
+
 .dropdown {
     display: flex;
     justify-content: space-between;
@@ -128,7 +126,7 @@ select:hover, select:focus {
     transform: scale(1.02);
 }
 
-/* Icon Styles */
+
 #icon {
     font-size: 32px;
     color: #1d72b8;
@@ -142,7 +140,7 @@ select:hover, select:focus {
     transform: scale(1.2);
 }
 
-/* Message Styles */
+
 .msg {
     margin-bottom: 30px;
     color: #333;
@@ -154,7 +152,7 @@ select:hover, select:focus {
     overflow-wrap: break-word; /* Ensure long words break correctly */
 }
 
-/* Button Styles */
+
 button {
     background: linear-gradient(45deg, #1d72b8, #155a8a);
     color: #fff;
@@ -178,7 +176,7 @@ button:active {
     transform: translateY(1px);
 }
 
-/* Animations */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
