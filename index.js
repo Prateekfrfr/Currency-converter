@@ -1,7 +1,6 @@
-
 const BASEURL = "https://api.exchangerate-api.com/v4/latest/USD";
 let exchangeRates = {};
-
+const icon = document.getElementById("icon");
 
 const fetchExchangeRates = async () => {
     try {
@@ -12,7 +11,6 @@ const fetchExchangeRates = async () => {
         console.error("Error fetching exchange rates:", error);
     }
 };
-
 
 const populateDropdowns = () => {
     const dropdowns = document.querySelectorAll(".dropdown select");
@@ -35,7 +33,6 @@ const populateDropdowns = () => {
     }
 };
 
-
 const updateFlag = (element) => {
     let Currcode = element.value;
     let Countrycode = countryList[Currcode];
@@ -43,7 +40,6 @@ const updateFlag = (element) => {
     let img = element.parentElement.querySelector("img");
     img.src = newsrc;
 };
-
 
 const convertCurrency = () => {
     let amount = document.querySelector(".amount input");
@@ -58,12 +54,10 @@ const convertCurrency = () => {
     let toCurrency = document.querySelector('select[name="to"]').value;
 
     if (fromCurrency === toCurrency) {
-        // Same currency, no conversion needed
         document.querySelector(".msg").innerText = `${amtVal} ${fromCurrency}`;
         return;
     }
 
-   
     let fromRate = exchangeRates[fromCurrency];
     let toRate = exchangeRates[toCurrency];
     
@@ -76,17 +70,34 @@ const convertCurrency = () => {
     document.querySelector(".msg").innerText = `${amtVal} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
 };
 
+const swapCurrencies = () => {
+    const fromSelect = document.querySelector('select[name="from"]');
+    const toSelect = document.querySelector('select[name="to"]');
 
-const initialising = async () => {
+  
+    const temp = fromSelect.value;
+    fromSelect.value = toSelect.value;
+    toSelect.value = temp;
+
+   
+    updateFlag(fromSelect);
+    updateFlag(toSelect);
+};
+
+const initializing = async () => {
     await fetchExchangeRates();
     populateDropdowns();
 };
-
 
 document.querySelector("#button").addEventListener("click", (evt) => {
     evt.preventDefault();
     convertCurrency();
 });
 
+icon.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    swapCurrencies();
+    convertCurrency(); 
+});
 
-initialising();
+initializing();
