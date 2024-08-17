@@ -8,7 +8,7 @@ body, h1, p, select, input, button {
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f0f4f8, #d9e2ec); /* Soft gradient background */
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
     color: #333;
     display: flex;
     justify-content: center;
@@ -16,8 +16,6 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-
-
 .container {
     background: #fff;
     border-radius: 20px;
@@ -44,6 +42,7 @@ h1 {
     letter-spacing: 1px;
     animation: bounceIn 1s ease-out;
 }
+
 
 .amount {
     margin-bottom: 30px;
@@ -99,8 +98,8 @@ select {
     font-size: 16px;
     background-color: #ffffff;
     transition: border-color 0.3s, background-color 0.3s, transform 0.3s;
-    appearance: none; /* Hide default arrow */
-    background: none; /* Remove any background images */
+    appearance: none; 
+    background: none; 
     animation: fadeIn 1s ease-out;
 }
 
@@ -142,14 +141,15 @@ select:hover, select:focus {
 
 
 .msg {
-    margin-bottom: 30px;
+    margin-top: 20px; 
     color: #333;
     font-size: 18px;
     font-weight: 500;
     animation: fadeIn 1s ease-out;
-    word-wrap: break-word; /* Ensure long words break correctly */
-    word-break: break-word; /* Ensure long words break correctly */
-    overflow-wrap: break-word; /* Ensure long words break correctly */
+    word-wrap: break-word; 
+    word-break: break-word; 
+    overflow-wrap: break-word;
+    text-align: center; 
 }
 
 
@@ -222,5 +222,31 @@ button:active {
     }
     100% {
         transform: scale(1);
+    }
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px; 
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input[type="number"], select {
+        font-size: 16px; 
+    }
+
+    button {
+        padding: 12px 20px; 
+        font-size: 16px; 
+    }
+
+    .msg {
+        font-size: 16px; 
+        margin-top: 15px; 
     }
 }
