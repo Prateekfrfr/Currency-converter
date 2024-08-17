@@ -1,8 +1,8 @@
-//   exchange rate API
+
 const BASEURL = "https://api.exchangerate-api.com/v4/latest/USD";
 let exchangeRates = {};
 
-// fetching exchange rates from the API
+
 const fetchExchangeRates = async () => {
     try {
         const response = await fetch(BASEURL);
@@ -13,7 +13,7 @@ const fetchExchangeRates = async () => {
     }
 };
 
-// Adding more countries options from codes.js
+
 const populateDropdowns = () => {
     const dropdowns = document.querySelectorAll(".dropdown select");
 
@@ -44,7 +44,7 @@ const updateFlag = (element) => {
     img.src = newsrc;
 };
 
-// Convert currency based on user input
+
 const convertCurrency = () => {
     let amount = document.querySelector(".amount input");
     let amtVal = parseFloat(amount.value);
@@ -63,7 +63,7 @@ const convertCurrency = () => {
         return;
     }
 
-    // Perform conversion
+   
     let fromRate = exchangeRates[fromCurrency];
     let toRate = exchangeRates[toCurrency];
     
@@ -76,17 +76,17 @@ const convertCurrency = () => {
     document.querySelector(".msg").innerText = `${amtVal} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
 };
 
-// Initializing the page with necessary data
+
 const initialising = async () => {
     await fetchExchangeRates();
     populateDropdowns();
 };
 
-//  currency conversion
+
 document.querySelector("#button").addEventListener("click", (evt) => {
     evt.preventDefault();
     convertCurrency();
 });
 
-// Initialize on page load
+
 initialising();
